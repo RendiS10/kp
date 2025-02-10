@@ -117,3 +117,40 @@ INSERT INTO `rekomendasi_program` (`judul`, `deskripsi`, `gambar`, `instructor`,
 ('Menerapkan Orientasi Pelayanan bagi Contact Center', 'Program ini mengajarkan petugas contact center cara memberikan pelayanan terbaik yang fokus pada kebutuhan dan kepuasan pelanggan.', 'public/assets/images/orang/Hero ProgramC4.png', 'Afif Lutfi', 'Rp 1.000.000');
 
 COMMIT;
+
+-- Table structure for table `berjuang`
+CREATE TABLE `berjuang` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) NOT NULL,
+  `profesi` varchar(255) NOT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Menambahkan data awal ke tabel `berjuang`
+INSERT INTO `berjuang` (`nama`, `profesi`, `tempat`, `gambar`) VALUES
+('Muhammad Fachri Afif', 'NDN-RG Research Assistant', 'Telkom University', 'https://magang.luarsekolah.com/upload/lulusan_bb/46ff3084892de74b27d0ae3308d1ae04.jpeg'),
+('Rafi Ahmad Khairan', 'Web Developer', 'Kementerian Hukum dan HAM RI', '../../public/assets/images/orang/image 11.png'),
+('Laurensius Patrick Steve', 'Social Media Manager', 'PT. SUMBER REJEKI BERKAT ABADI', 'https://magang.luarsekolah.com/upload/lulusan_bb/9ade67141af985f7fd84dd32c5a67f66.png'),
+('Tengku Chairu Abda', 'Front-End Engineer', 'PT. Summit Global Teknologi', 'https://magang.luarsekolah.com/upload/lulusan_bb/6671da690a622669737af6bb3685618c.jpeg');
+
+COMMIT;
+
+-- Table structure for table `mereka_berhasil`
+CREATE TABLE `mereka_berhasil` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) NOT NULL,
+  `profesi` varchar(255) NOT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Menambahkan data awal ke tabel `mereka_berhasil`
+INSERT INTO `mereka_berhasil` (`nama`, `profesi`, `tempat`, `gambar`) VALUES
+('Wafiq Nur Agniati', 'Graphic Design', 'Belum ditentukan', '../../public/assets/images/orang/1 1.png'),
+('Eka Rosalina Fitria', 'Digital Marketing', 'Belum ditentukan', '../../public/assets/images/orang/Salinan dari Profile Overview User Persona User Persona Presentation (1) 1.png'),
+('Gunawan', 'Web Developer', 'Belum ditentukan', '../../public/assets/images/orang/Salinan dari Profile Overview User Persona User Persona Presentation 1.png');
+
+COMMIT;
