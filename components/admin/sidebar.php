@@ -23,13 +23,18 @@ if (!isset($_SESSION['username'])) {
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolatentangkami.php' ? 'active' : ''; ?>" href="kelolatentangkami.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Kelola Halaman Tentang Kami
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolaprogram.php' ? 'active' : ''; ?>" href="kelolaprogram.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Program Magang
                 </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolasuccessalumni.php' ? 'active' : ''; ?>" href="kelolasuccessalumni.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Konten Halaman Sukses Alumni
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolakerjasama.php' ? 'active' : ''; ?>" href="kelolakerjasama.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Program Kerja Sama
+                </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'rekomendasikelas.php' ? 'active' : ''; ?>" href="rekomendasikelas.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Rekomendasi Kelas
                 </a>
             </li>
             <li class="nav-item">
