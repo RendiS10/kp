@@ -1,0 +1,107 @@
+@media (max-width: 1200px) {
+  footer .footer1,
+  footer .footer2 {
+    display: none; /* Sembunyikan bagian footer lainnya */
+  }
+
+  footer .footer-bottom {
+    display: block; /* Tampilkan hanya bagian copyright */
+  }
+}
+/* Responsif untuk layar di bawah 1200px */
+@media (min-width: 770px) and (max-width: 1200px) {
+  .menu {
+    display: none; /* Sembunyikan menu secara default */
+    flex-direction: column; /* Ubah arah menjadi kolom */
+    position: absolute; /* Posisi absolut untuk menu */
+    top: 85px; /* Sesuaikan dengan tinggi navbar */
+    left: 0;
+    right: 0;
+    background-color: #ffffff; /* Warna latar belakang menu */
+    z-index: 999; /* Pastikan menu di atas elemen lainnya */
+  }
+  .menu ul {
+    padding: 10px;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block; /* Tampilkan tombol hamburger */
+    cursor: pointer; /* Ubah kursor saat hover */
+  }
+
+  .menu.active {
+    display: flex; /* Tampilkan menu saat aktif */
+    flex-direction: column; /* Ubah arah menjadi kolom */
+  }
+}
+@media (max-width: 760px) {
+  .auth-buttons {
+    display: none; /* Sembunyikan tombol di luar menu */
+  }
+
+  .menu .auth-buttons {
+    display: flex; /* Tampilkan tombol dalam menu */
+    flex-direction: column; /* Ubah arah menjadi kolom */
+    gap: 10px; /* Jarak antar tombol */
+    padding: 10px; /* Tambahkan padding jika perlu */
+  }
+  .menu {
+    display: none; /* Sembunyikan menu secara default */
+    flex-direction: column; /* Ubah arah menjadi kolom */
+    position: absolute; /* Posisi absolut untuk menu */
+    top: 85px; /* Sesuaikan dengan tinggi navbar */
+    left: 0;
+    right: 0;
+    background-color: #ffffff; /* Warna latar belakang menu */
+    z-index: 999; /* Pastikan menu di atas elemen lainnya */
+  }
+  .menu ul {
+    padding: 10px;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block; /* Tampilkan tombol hamburger */
+    cursor: pointer; /* Ubah kursor saat hover */
+  }
+
+  .menu.active {
+    display: flex; /* Tampilkan menu saat aktif */
+    flex-direction: column; /* Ubah arah menjadi kolom */
+  }
+}
+
+@media (max-width: 870px) {
+  .containerValue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerWhy {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di atas */
+    grid-template-rows: auto; /* Baris otomatis */
+    gap: 20px; /* Jarak antar kolom */
+  }
+  .program-description {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+  }
+  .recommendation-description {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+  }
+}
