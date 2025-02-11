@@ -6,17 +6,17 @@
     <!-- Section About Luarsekolah -->
     <?php include 'components/tentangkami/aboutLs.php'; ?>
 
-        <!-- Section Foto Kegiatan Luarsekolah -->
-        <?php include 'components/tentangkami/fotoLs.php'; ?>
+    <!-- Section Foto Kegiatan Luarsekolah -->
+    <?php include 'components/tentangkami/fotoLs.php'; ?>
 
- <!-- Section Visi dan Misi -->
-               <?php include 'components/tentangkami/visiMisi.php'; ?>
+    <!-- Section Visi dan Misi -->
+    <?php include 'components/tentangkami/visiMisi.php'; ?>
         
-                   <!-- Section Value yang Diberikan -->
+    <!-- Section Value yang Diberikan -->
     <?php include 'components/tentangkami/valueDiberikan.php'; ?>
 
-        <!-- Section Tim Kami -->
-        <?php include 'components/tentangkami/timKami.php'; ?>
+    <!-- Section Tim Kami -->
+    <?php include 'components/tentangkami/timKami.php'; ?>
 
     <!-- Section Kenapa Harus Luarsekolah -->
     <?php include 'components/tentangkami/kenapaLS.php'; ?>

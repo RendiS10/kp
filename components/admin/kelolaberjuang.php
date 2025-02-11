@@ -1,0 +1,112 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+include 'koneksi.php';
+
+// UPDATE
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $nama = $_POST['nama'];
+    $profesi = $_POST['profesi'];
+    $tempat = $_POST['tempat'];
+    $gambar = $_POST['gambar'];
+
+    $query = "UPDATE berjuang 
+              SET nama='$nama', profesi='$profesi', tempat='$tempat', gambar='$gambar' 
+              WHERE id=$id";
+    mysqli_query($koneksi, $query);
+    header("Location: kelolaberjuang.php");
+    exit();
+}
+
+// READ (Tampilkan semua data untuk diedit)
+$result = mysqli_query($koneksi, "SELECT * FROM berjuang");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Data Berjuang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+</head>
+<body>
+
+<?php include 'sidebar.php'; ?>
+
+<div class="container mt-5" style="margin-left: 260px;">
+    <h1 class="mb-4">Kelola Data Berjuang</h1>
+
+    <!-- Tabel Data Berjuang -->
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Nama</th>
+                <th>Profesi</th>
+                <th>Tempat</th>
+                <th>Gambar</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+            <tr>
+                <td><?php echo $row['nama']; ?></td>
+                <td><?php echo $row['profesi']; ?></td>
+                <td><?php echo $row['tempat']; ?></td>
+                <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
+                <td>
+                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
+                </td>
+            </tr>
+
+            <!-- Modal Edit Data Berjuang -->
+            <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form method="POST">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Data Berjuang</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <div class="mb-3">
+                                    <label class="form-label">Nama</label>
+                                    <input type="text" class="form-control" name="nama" value="<?php echo $row['nama']; ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Profesi</label>
+                                    <input type="text" class="form-control" name="profesi" value="<?php echo $row['profesi']; ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tempat</label>
+                                    <input type="text" class="form-control" name="tempat" value="<?php echo $row['tempat']; ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">URL Gambar</label>
+                                    <input type="text" class="form-control" name="gambar" value="<?php echo $row['gambar']; ?>" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -38,6 +38,16 @@ if (!isset($_SESSION['username'])) {
                 </a>
             </li>
             <li class="nav-item">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolaberjuang.php' ? 'active' : ''; ?>" href="kelolaberjuang.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Dari Berjuang Hingga Berprestasi
+                </a>
+            </li>
+              <li class="nav-item">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolamerekaberhasil.php' ? 'active' : ''; ?>" href="kelolamerekaberhasil.php">
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Mereka Yang Berhasil
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" onclick="confirmLogout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>

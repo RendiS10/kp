@@ -1,142 +1,141 @@
 * {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: bold;
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url(https://authentication.luarsekolah.com/images/svg/auth-bg-pattern.svg);
-    overflow: hidden;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideInFromTop {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  .login-container {
-    background-color: #FDFEFE;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    -webkit-box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
--moz-box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
-box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
-    animation: fadeIn 0.5s ease-out;
-  }
-  
-  .login-container img {
-    width: 200px;
-    height: 100px;
-    display: block;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    animation: slideInFromTop 0.5s ease-out 0.2s both;
-  }
-  
-  form ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  form li {
-    margin-bottom: 15px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url(https://authentication.luarsekolah.com/images/svg/auth-bg-pattern.svg);
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    animation: slideInFromTop 0.5s ease-out forwards;
   }
-  
-  form li:nth-child(1) {
-    animation-delay: 0.6s;
+  to {
+    opacity: 1;
   }
-  
-  form li:nth-child(2) {
-    animation-delay: 0.8s;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  form li:nth-child(3) {
-    animation-delay: 1s;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  form li:nth-child(4) {
-    animation-delay: 1.2s;
-  }
-  
-  form li:nth-child(5) {
-    animation-delay: 1.4s;
-  }
-  
-  form label {
-    font-size: 8pt;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #0ACC9A;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-  }
-  
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(248, 113, 19, 0.3);
-  }
-  
-  input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #0ACC9A;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #0ACC9A;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  fieldset {
-    color: #0ACC9A;
-    border: #0ACC9A solid 3px;
-    animation: fadeIn 0.5s ease-out 0.4s both;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #0ACC9A;
-    transition: color 0.3s ease;
-  }
-  
-  a:hover {
-    color: #0ACC9A;
-  }
-  
+}
+
+.login-container {
+  background-color: #fdfefe;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  -webkit-box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 18px -3px rgba(66, 68, 90, 1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.login-container img {
+  width: 200px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  animation: slideInFromTop 0.5s ease-out 0.2s both;
+}
+
+form ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+form li {
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: slideInFromTop 0.5s ease-out forwards;
+}
+
+form li:nth-child(1) {
+  animation-delay: 0.6s;
+}
+
+form li:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+form li:nth-child(3) {
+  animation-delay: 1s;
+}
+
+form li:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+form li:nth-child(5) {
+  animation-delay: 1.4s;
+}
+
+form label {
+  font-size: 8pt;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #0acc9a;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(248, 113, 19, 0.3);
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #0acc9a;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0acc9a;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+fieldset {
+  color: #0acc9a;
+  border: #0acc9a solid 3px;
+  animation: fadeIn 0.5s ease-out 0.4s both;
+}
+
+a {
+  text-decoration: none;
+  color: #0acc9a;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0acc9a;
+}

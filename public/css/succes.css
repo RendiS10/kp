@@ -204,7 +204,6 @@ body {
   width: 158px;
   height: 134px;
 }
-
 /* Footer */
 footer {
   padding: 20px;
@@ -268,6 +267,62 @@ footer {
   color: black;
 }
 
+.footer2-component3 {
+  text-align: center; /* Pusatkan teks */
+}
+
+.google-play {
+  display: flex;
+  flex-direction: column; /* Susun secara vertikal */
+  align-items: center; /* Pusatkan secara horizontal */
+  margin-top: 10px; /* Jarak atas */
+}
+
+.btn-google-play {
+  display: flex;
+  background-color: #f0f0f0; /* Warna latar belakang tombol */
+  border: none; /* Tanpa border */
+  padding: 10px 20px; /* Padding tombol */
+  border-radius: 5px; /* Sudut membulat */
+  cursor: pointer; /* Tangan saat hover */
+  margin: 5px 0; /* Jarak atas dan bawah */
+}
+
+.btn-google-play:hover {
+  background-color: #e0e0e0; /* Warna saat hover */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 0px 100px;
+}
+
+.footer-section {
+  width: 48%;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+.footer-section p a {
+  color: black;
+}
+.footer-section p span {
+  margin-right: 10px;
+}
+
 .footer-bottom {
   text-align: center;
   padding: 10px 0;
@@ -300,7 +355,6 @@ footer {
 .sosmed i {
   color: black; /* Mengubah warna ikon menjadi hitam */
 }
-
 
 /* Section Statistik */
 .statistikAlumni {

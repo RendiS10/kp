@@ -30,7 +30,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   </div>
                 </div>
                 <blockquote>
-                  “Program Luarsekolah membuat skill design graphic aku lebih terasah dan juga membuat aku lebih bisa mengeskpresikan kreativitas dengan bebas.”
+                  <?php echo $row['katakata']; ?>
                 </blockquote>
               </div>
             <?php endforeach; ?>
