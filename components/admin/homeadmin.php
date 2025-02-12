@@ -38,9 +38,12 @@ foreach ($tables as $table) {
 <?php include 'sidebar.php'; ?>
 
 <div class="content" style="margin-left: 260px; padding: 20px;">
-    <h1>Halaman Home Admin</h1>
-    <p>Ini adalah konten untuk mengelola halaman Home Admin.</p>
-
+    <hr>
+    <center>
+        <h2><b>Dashboard</b></h2>
+    </center>
+    <hr>
+    <br>
     <div class="row">
         <div class="col-md-4">
             <div class="card text-white bg-success mb-3">
