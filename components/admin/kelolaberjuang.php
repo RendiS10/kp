@@ -30,37 +30,39 @@ $result = mysqli_query($koneksi, "SELECT * FROM berjuang");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Data Berjuang</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/sidebar.css">
-    <link rel="stylesheet" href="../../public/css/admin-style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Alumni Yang Berprestasi</title>
+    <link
+      rel="icon"
+      href="../../public/assets/images/logo/LS-logo-master.png"
+      type="image/x-icon"
+    />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <?php include 'sidebar.php'; ?>
 
 <div class="container mt-5" style="margin-left: 260px;">
-    <h1 class="mb-4">Kelola Data Berjuang</h1>
+    <h3 class="mb-4">Kelola Alumni Yang Berprestasi</h3>
 
     <!-- Card untuk Tabel Data Berjuang -->
     <div class="card mb-4 shadow">
-        <div class="card-header bg-primary text-white">Daftar Data Berjuang</div>
+        <div class="card-header bg-dark text-white">Daftar Top 4 Alumni Berprestasi </div>
         <div class="card-body">
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Nama</th>
-                        <th>Profesi</th>
-                        <th>Tempat</th>
-                        <th>Gambar</th>
-                        <th>Aksi</th>
+           <table class="table table-striped table-bordered" style="border-radius: 5px;">
+        <tr class="bg-dark text-white" style="text-align: center">
+                        <td>Nama</td>
+                        <td>Profesi</td>
+                        <td>Tempat</td>
+                        <td>Gambar</td>
+                        <td>Aksi</td>
                     </tr>
-                </thead>
-                <tbody>
                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                    <tr>
+                    <tr style="text-align: center">
                         <td><?php echo $row['nama']; ?></td>
                         <td><?php echo $row['profesi']; ?></td>
                         <td><?php echo $row['tempat']; ?></td>
@@ -107,12 +109,10 @@ $result = mysqli_query($koneksi, "SELECT * FROM berjuang");
                         </div>
                     </div>
                     <?php endwhile; ?>
-                </tbody>
             </table>
         </div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

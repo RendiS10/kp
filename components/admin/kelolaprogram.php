@@ -48,22 +48,30 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Halaman Tentang Kami</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/sidebar.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Program Magang</title>
+    <link
+      rel="icon"
+      href="../../public/assets/images/logo/LS-logo-master.png"
+      type="image/x-icon"
+    />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <?php include 'sidebar.php'; ?>
 
 <div class="container mt-5" style="margin-left: 260px;">
-    <h1 class="mb-4">Kelola Program</h1>
-
-    <!-- Form Tambah Program -->
-    <div class="card mb-4">
-        <div class="card-header bg-primary text-white">Tambah Program Baru</div>
+     <center>
+         <h3>Kelola Program Tersedia</h3>
+    </center>
+    <br>
+        <!-- Form Tambah Program -->
+        <div class="card mb-4">
+        <div class="card-header bg-dark text-white">Tambah Program Baru</div>
         <div class="card-body">
             <form method="POST">
                 <div class="mb-3">
@@ -78,31 +86,29 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                     <label for="gambar" class="form-label">URL Gambar</label>
                     <input type="text" class="form-control" name="gambar" required>
                 </div>
-                <button type="submit" name="tambah" class="btn btn-success">Tambah Program</button>
+                <button type="submit" name="tambah" class="btn btn-secondary">Tambah Program</button>
             </form>
         </div>
     </div>
 
     <!-- Tabel Program -->
-    <h2>Daftar Program</h2>
-    <table class="table table-striped table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>Nama Program</th>
-                <th>Deskripsi</th>
-                <th>Gambar</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
+    <table class="table table-striped table-bordered" style="border-radius: 5px;">
+        <tr class="bg-dark text-white" style="text-align: center">
+                <td>Nama Program</td>
+                <td>Deskripsi</td>
+                <td>Gambar</td>
+                <td>Aksi</td>
+        </tr>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <tr>
                 <td><?php echo $row['nama_program']; ?></td>
                 <td><?php echo $row['deskripsi']; ?></td>
                 <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
                 <td>
-                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
-                    <a href="?hapus=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
+                        <a href="?hapus=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                    </div>
                 </td>
             </tr>
 
@@ -139,10 +145,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                 </div>
             </div>
             <?php endwhile; ?>
-        </tbody>
     </table>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

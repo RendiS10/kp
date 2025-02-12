@@ -7,15 +7,10 @@ if (!isset($_SESSION['username'])) {
 <!-- sidebar.php -->
 <!-- Link CSS dan Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../../css/sidebar.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../../css/sidebar.css">
 <link rel="stylesheet" href="../../public/css/admin-style.css">
-<link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <!-- Sidebar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 100vh; position: fixed; width: 250px;">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +40,12 @@ if (!isset($_SESSION['username'])) {
             </li>
             <li class="nav-item">
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolaberjuang.php' ? 'active' : ''; ?>" href="kelolaberjuang.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Kelola Dari Berjuang Hingga Berprestasi
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Alumni Yang Berprestasi
                 </a>
             </li>
               <li class="nav-item">
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolamerekaberhasil.php' ? 'active' : ''; ?>" href="kelolamerekaberhasil.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Kelola Mereka Yang Berhasil
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Data Review Alumi
                 </a>
             </li>
             <li class="nav-item">

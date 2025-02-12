@@ -55,22 +55,30 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kelola Rekomendasi Kelas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link
+      rel="icon"
+      href="../../public/assets/images/logo/LS-logo-master.png"
+      type="image/x-icon"
+    />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <?php include 'sidebar.php'; ?>
 
 <div class="container mt-5" style="margin-left: 260px;">
-    <h1 class="mb-4">Kelola Rekomendasi Kelas</h1>
+    <center>
+        <h3 class="mb-4">Kelola Rekomendasi Kelas</h3>
+    </center>
 
     <!-- Form Tambah Rekomendasi Kelas -->
     <div class="card mb-4">
-        <div class="card-header bg-primary text-white">Tambah Rekomendasi Baru</div>
+        <div class="card-header bg-dark text-white">Tambah Rekomendasi Baru</div>
         <div class="card-body">
             <form method="POST">
                 <div class="mb-3">
@@ -93,25 +101,21 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
                     <label for="harga" class="form-label">Harga</label>
                     <input type="text" class="form-control" name="harga" required>
                 </div>
-                <button type="submit" name="tambah" class="btn btn-success">Tambah Rekomendasi</button>
+                <button type="submit" name="tambah" class="btn btn-secondary">Tambah Rekomendasi</button>
             </form>
         </div>
     </div>
 
     <!-- Tabel Rekomendasi Kelas -->
-    <h2>Daftar Rekomendasi Kelas</h2>
-    <table class="table table-striped table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>Judul Program</th>
-                <th>Deskripsi</th>
-                <th>Gambar</th>
-                <th>Instruktur</th>
-                <th>Harga</th>
-                <th>Aksi</th>
+   <table class="table table-striped table-bordered" style="border-radius: 5px;">
+        <tr class="bg-dark text-white" style="text-align: center">
+                <td>Judul Program</td>
+                <td>Deskripsi</td>
+                <td>Gambar</td>
+                <td>Instruktur</td>
+                <td>Harga</td>
+                <td>Aksi</td>
             </tr>
-        </thead>
-        <tbody>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <tr>
                 <td><?php echo $row['judul']; ?></td>
@@ -119,7 +123,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
                 <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
                 <td><?php echo $row['instructor']; ?></td>
                 <td><?php echo $row['harga']; ?></td>
-                <td>
+                <td style="display: flex; gap: 1rem;">
                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
                     <a href="?hapus=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                 </td>
@@ -166,10 +170,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
                 </div>
             </div>
             <?php endwhile; ?>
-        </tbody>
     </table>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
