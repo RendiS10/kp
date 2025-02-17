@@ -32,7 +32,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <p class="card-instructor"><?php echo $row['instructor']; ?></p>
                 <p class="card-description"><?php echo $row['deskripsi']; ?></p>
                 <p class="card-price"><?php echo $row['harga']; ?></p>
-                <a href="#" class="card-button">Selengkapnya →</a>
+                <a href="<?php echo $row['selengkapnya'] ?>" class="card-button">Selengkapnya →</a>
             </div>
         <?php endforeach; ?>
     <?php else : ?>

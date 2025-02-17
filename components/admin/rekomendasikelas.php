@@ -14,9 +14,10 @@ if (isset($_POST['tambah'])) {
     $gambar = $_POST['gambar'];
     $instructor = $_POST['instructor'];
     $harga = $_POST['harga'];
+    $selengkapnya = $_POST['selengkapnya'];
 
-    $query = "INSERT INTO rekomendasi_program (judul, deskripsi, gambar, instructor, harga) 
-              VALUES ('$judul', '$deskripsi', '$gambar', '$instructor', '$harga')";
+    $query = "INSERT INTO rekomendasi_program (judul, deskripsi, gambar, instructor, harga , selengkapnya) 
+              VALUES ('$judul', '$deskripsi', '$gambar', '$instructor', '$harga' , '$selengkapnya')";
     mysqli_query($koneksi, $query);
     header("Location: rekomendasikelas.php");
     exit();
@@ -30,9 +31,10 @@ if (isset($_POST['update'])) {
     $gambar = $_POST['gambar'];
     $instructor = $_POST['instructor'];
     $harga = $_POST['harga'];
+    $selengkapnya = $_POST['selengkapnya'];
 
     $query = "UPDATE rekomendasi_program 
-              SET judul='$judul', deskripsi='$deskripsi', gambar='$gambar', instructor='$instructor', harga='$harga' 
+              SET judul='$judul', deskripsi='$deskripsi', gambar='$gambar', instructor='$instructor', harga='$harga' , selengkapnya='$selengkapnya'
               WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: rekomendasikelas.php");
@@ -101,6 +103,10 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
                     <label for="harga" class="form-label">Harga</label>
                     <input type="text" class="form-control" name="harga" required>
                 </div>
+                  <div class="mb-3">
+                    <label for="selengkapnya" class="form-label">Link Kelas</label>
+                    <input type="text" class="form-control" name="selengkapnya" required>
+                </div>
                 <button type="submit" name="tambah" class="btn btn-secondary">Tambah Rekomendasi</button>
             </form>
         </div>
@@ -159,6 +165,10 @@ $result = mysqli_query($koneksi, "SELECT * FROM rekomendasi_program");
                                 <div class="mb-3">
                                     <label class="form-label">Harga</label>
                                     <input type="text" class="form-control" name="harga" value="<?php echo $row['harga']; ?>" required>
+                                </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Link Kelas</label>
+                                    <input type="text" class="form-control" name="selengkapnya" value="<?php echo $row['selengkapnya']; ?>" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
