@@ -2,7 +2,7 @@
 include 'components/admin/koneksi.php'; // Pastikan koneksi database sudah ada
 
 // Query untuk mengambil data proyek
-$query = "SELECT * FROM project"; // Ganti dengan nama tabel yang sesuai
+$query = "SELECT * FROM program_kerjasama"; // Ganti dengan nama tabel yang sesuai
 $result = mysqli_query($koneksi, $query);
 
 // Cek jika query gagal
@@ -26,8 +26,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php if (count($data) > 0) : ?>
             <?php foreach ($data as $row) : ?>
                 <div class="program-card">
-                    <img src="<?php echo $row['gambar']; ?>" alt="<?php echo $row['nama_project']; ?>" class="program-image" />
-                    <h3 class="program-card-title"><?php echo $row['nama_project']; ?></h3>
+                    <img src="<?php echo $row['gambar']; ?>" alt="<?php echo $row['nama_program_kerjasama']; ?>" class="program-image" />
+                    <h3 class="program-card-title"><?php echo $row['nama_program_kerjasama']; ?></h3>
                     <p class="program-card-description"><?php echo $row['deskripsi']; ?></p>
                     <a href="<?php echo $row['link_program_kerjasama']; ?>" class="program-button">Lihat Detail Project</a>
                 </div>

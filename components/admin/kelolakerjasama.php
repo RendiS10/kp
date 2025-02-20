@@ -9,12 +9,12 @@ include 'koneksi.php';
 
 // CREATE
 if (isset($_POST['tambah'])) {
-    $nama_project = $_POST['nama_project'];
+    $nama_program_kerjasama = $_POST['nama_program_kerjasama'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
     $link_program_kerjasama = $_POST['link_program_kerjasama'];
 
-    $query = "INSERT INTO project (nama_project, deskripsi, gambar, link_program_kerjasama) VALUES ('$nama_project', '$deskripsi', '$gambar', '$link_program_kerjasama')";
+    $query = "INSERT INTO project (nama_program_kerjasama, deskripsi, gambar, link_program_kerjasama) VALUES ('$nama_program_kerjasama', '$deskripsi', '$gambar', '$link_program_kerjasama')";
     mysqli_query($koneksi, $query);
     header("Location: kelolakerjasama.php");
     exit();
@@ -23,12 +23,12 @@ if (isset($_POST['tambah'])) {
 // UPDATE
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
-    $nama_project = $_POST['nama_project'];
+    $nama_program_kerjasama = $_POST['nama_program_kerjasama'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
     $link_program_kerjasama = $_POST['link_program_kerjasama'];
 
-    $query = "UPDATE project SET nama_project='$nama_project', deskripsi='$deskripsi', gambar='$gambar', link_program_kerjasama='$link_program_kerjasama' WHERE id=$id";
+    $query = "UPDATE project SET nama_program_kerjasama='$nama_program_kerjasama', deskripsi='$deskripsi', gambar='$gambar', link_program_kerjasama='$link_program_kerjasama' WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolakerjasama.php");
     exit();
@@ -79,8 +79,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM project");
         <div class="card-body">
             <form method="POST">
                 <div class="mb-3">
-                    <label for="nama_project" class="form-label">Nama Proyek</label>
-                    <input type="text" class="form-control" name="nama_project" required>
+                    <label for="nama_program_kerjasama" class="form-label">Nama Proyek</label>
+                    <input type="text" class="form-control" name="nama_program_kerjasama" required>
                 </div>
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi Proyek</label>
@@ -109,7 +109,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM project");
             </tr>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <tr>
-                <td><?php echo $row['nama_project']; ?></td>
+                <td><?php echo $row['nama_program_kerjasama']; ?></td>
                 <td><?php echo $row['deskripsi']; ?></td>
                 <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
                 <td style="display: flex; gap: 1rem;">
@@ -131,7 +131,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM project");
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <div class="mb-3">
                                     <label class="form-label">Nama Proyek</label>
-                                    <input type="text" class="form-control" name="nama_project" value="<?php echo $row['nama_project']; ?>" required>
+                                    <input type="text" class="form-control" name="nama_program_kerjasama" value="<?php echo $row['nama_program_kerjasama']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Deskripsi</label>

@@ -11,11 +11,11 @@ include 'koneksi.php';
 if (isset($_POST['tambah'])) {
     $nama = $_POST['nama'];
     $profesi = $_POST['profesi'];
-    $katakata = $_POST['katakata'];
+    $ulasan = $_POST['ulasan'];
     $gambar = $_POST['gambar'];
 
-    $query = "INSERT INTO mereka_berhasil (nama, profesi, katakata, gambar) 
-              VALUES ('$nama', '$profesi', '$katakata', '$gambar')";
+    $query = "INSERT INTO mereka_berhasil (nama, profesi, ulasan, gambar) 
+              VALUES ('$nama', '$profesi', '$ulasan', '$gambar')";
     mysqli_query($koneksi, $query);
     header("Location: kelolamerekaberhasil.php");
     exit();
@@ -26,11 +26,11 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
     $profesi = $_POST['profesi'];
-    $katakata = $_POST['katakata'];
+    $ulasan = $_POST['ulasan'];
     $gambar = $_POST['gambar'];
 
     $query = "UPDATE mereka_berhasil 
-              SET nama='$nama', profesi='$profesi', katakata='$katakata', gambar='$gambar' 
+              SET nama='$nama', profesi='$profesi', ulasan='$ulasan', gambar='$gambar' 
               WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolamerekaberhasil.php");
@@ -88,8 +88,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM mereka_berhasil");
                     <input type="text" class="form-control" name="profesi" required>
                 </div>
                 <div class="mb-3">
-                    <label for="katakata" class="form-label">katakata</label>
-                    <input type="text" class="form-control" name="katakata" required>
+                    <label for="ulasan" class="form-label">ulasan</label>
+                    <input type="text" class="form-control" name="ulasan" required>
                 </div>
                 <div class="mb-3">
                     <label for="gambar" class="form-label">URL Gambar</label>
@@ -114,7 +114,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM mereka_berhasil");
             <tr>
                 <td><?php echo $row['nama']; ?></td>
                 <td><?php echo $row['profesi']; ?></td>
-                <td><?php echo $row['katakata']; ?></td>
+                <td><?php echo $row['ulasan']; ?></td>
                 <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
                 <td style="display: flex; gap: 1rem;">
                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
@@ -143,7 +143,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM mereka_berhasil");
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Kata Kata</label>
-                                    <input type="text" class="form-control" name="katakata" value="<?php echo $row['katakata']; ?>" required>
+                                    <input type="text" class="form-control" name="ulasan" value="<?php echo $row['ulasan']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">URL Gambar</label>

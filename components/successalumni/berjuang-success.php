@@ -1,8 +1,8 @@
 <?php
 include '../admin/koneksi.php'; // Pastikan koneksi database sudah ada
 
-// Query untuk mengambil data berjuang
-$query = "SELECT * FROM berjuang";
+// Query untuk mengambil data top_alumni
+$query = "SELECT * FROM top_alumni";
 $result = mysqli_query($koneksi, $query);
 
 // Cek jika query gagal
@@ -25,7 +25,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="card-content">
                   <h3><?php echo $row['nama']; ?></h3>
                   <p>Profesi: <?php echo $row['profesi']; ?></p>
-                  <p>Tempat: <?php echo $row['tempat']; ?></p>
+                  <p>Tempat: <?php echo $row['tempat_kerja']; ?></p>
                   <div class="sosmedtim">
                     <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>

@@ -12,9 +12,9 @@ if (isset($_POST['tambah'])) {
     $nama_program = $_POST['nama_program'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
-    $link_program = $_POST['link_program'];
+    $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "INSERT INTO program (nama_program, deskripsi, gambar, link_program) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_program')";
+    $query = "INSERT INTO program (nama_program, deskripsi, gambar, link_pelatihan) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_pelatihan')";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -26,9 +26,9 @@ if (isset($_POST['update'])) {
     $nama_program = $_POST['nama_program'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
-    $link_program = $_POST['link_program'];
+    $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "UPDATE program SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar', link_program='$link_program' WHERE id=$id";
+    $query = "UPDATE program SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar', link_pelatihan='$link_pelatihan' WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -89,8 +89,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                     <input type="text" class="form-control" name="gambar" required>
                 </div>
                   <div class="mb-3">
-                    <label for="link_program" class="form-label">Link Program</label>
-                    <input type="text" class="form-control" name="link_program" required>
+                    <label for="link_pelatihan" class="form-label">Link Program</label>
+                    <input type="text" class="form-control" name="link_pelatihan" required>
                 </div>
                 <button type="submit" name="tambah" class="btn btn-secondary">Tambah Program</button>
             </form>
@@ -143,7 +143,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                                 </div>
                                  <div class="mb-3">
                                     <label class="form-label">Link Program</label>
-                                    <input type="text" class="form-control" name="link_program" value="<?php echo $row['link_program']; ?>" required>
+                                    <input type="text" class="form-control" name="link_pelatihan" value="<?php echo $row['link_pelatihan']; ?>" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

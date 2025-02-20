@@ -23,7 +23,7 @@
 
     
     <!-- Section Our Projects -->
-    <?php include 'components/tentangkami/projectKami.php'; ?>
+    <?php include 'components/tentangkami/programkerjasama.php'; ?>
  
     <!-- Section Program Tersedia -->
     <?php include 'components/tentangkami/programTersedia.php'; ?>

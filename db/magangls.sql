@@ -24,22 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berjuang`
+-- Table structure for table `top_alumni`
 --
 
-CREATE TABLE `berjuang` (
+CREATE TABLE `top_alumni` (
   `id` int NOT NULL,
   `nama` varchar(255) NOT NULL,
   `profesi` varchar(255) NOT NULL,
-  `tempat` varchar(255) NOT NULL,
+  `tempat_kerja` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `berjuang`
+-- Dumping data for table `top_alumni`
 --
 
-INSERT INTO `berjuang` (`id`, `nama`, `profesi`, `tempat`, `gambar`) VALUES
+INSERT INTO `top_alumni` (`id`, `nama`, `profesi`, `tempat_kerja`, `gambar`) VALUES
 (1, 'Muhammad Fachri Afif', 'NDN-RG Research Assistant', 'Telkom University', 'https://magang.luarsekolah.com/upload/lulusan_bb/46ff3084892de74b27d0ae3308d1ae04.jpeg'),
 (2, 'Rafi Ahmad Khairan', 'Web Developer', 'Kementerian Hukum dan HAM RI', '../../public/assets/images/orang/image 11.png'),
 (3, 'Laurensius Patrick Steve', 'Social Media Manager', 'PT. SUMBER REJEKI BERKAT ABADI', 'https://magang.luarsekolah.com/upload/lulusan_bb/9ade67141af985f7fd84dd32c5a67f66.png'),
@@ -67,22 +67,22 @@ INSERT INTO `login_admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mereka_berhasil`
+-- Table structure for table `ulasan_alumni`
 --
 
-CREATE TABLE `mereka_berhasil` (
+CREATE TABLE `ulasan_alumni` (
   `id` int NOT NULL,
   `nama` varchar(255) NOT NULL,
   `profesi` varchar(255) NOT NULL,
-  `katakata` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ulasan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `mereka_berhasil`
+-- Dumping data for table `ulasan_alumni`
 --
 
-INSERT INTO `mereka_berhasil` (`id`, `nama`, `profesi`, `katakata`, `gambar`) VALUES
+INSERT INTO `ulasan_alumni` (`id`, `nama`, `profesi`, `ulasan`, `gambar`) VALUES
 (1, 'Wafiq Nur Agniati', 'Graphic Design', '“Program Luarsekolah membuat skill design graphic aku lebih terasah dan juga membuat aku lebih bisa mengeskpresikan kreativitas dengan bebas.”', '../../public/assets/images/orang/1 1.png'),
 (2, 'Eka Rosalina Fitria', 'Digital Marketing', '“Program Luarsekolah membuat skill design graphic aku lebih terasah dan juga membuat aku lebih bisa mengeskpresikan kreativitas dengan bebas.”', '../../public/assets/images/orang/Salinan dari Profile Overview User Persona User Persona Presentation (1) 1.png'),
 (3, 'Gunawan', 'Web Developer', '“Program Luarsekolah membuat skill design graphic aku lebih terasah dan juga membuat aku lebih bisa mengeskpresikan kreativitas dengan bebas.”', '../../public/assets/images/orang/Salinan dari Profile Overview User Persona User Persona Presentation 1.png');
@@ -90,44 +90,44 @@ INSERT INTO `mereka_berhasil` (`id`, `nama`, `profesi`, `katakata`, `gambar`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `program`
+-- Table structure for table `program_pelatihan`
 --
 
-CREATE TABLE `program` (
+CREATE TABLE `program_pelatihan` (
   `id` int NOT NULL,
   `nama_program` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `link_program` varchar(250) NOT NULL
+  `link_pelatihan` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `program`
+-- Dumping data for table `program_pelatihan`
 --
 
-INSERT INTO `program` (`id`, `nama_program`, `deskripsi`, `gambar`, `link_program`) VALUES
+INSERT INTO `program_pelatihan` (`id`, `nama_program`, `deskripsi`, `gambar`, `link_pelatihan`) VALUES
 (1, 'Project Based Internship (PBIs)', 'Program magang berdurasi maksimal 3 bulan. Cocok untukmu untuk mendapatkan basic experiences atau portofolio.', 'public/assets/images/orang/Ikon ProgramB1.png', 'https://pbi.belajarbekerja.com/'),
 (2, 'Job Connector', 'Program berdurasi 6 bulan atau lebih. Cocok untukmu agar lebih siap secara profesional untuk bisa mendapatkan pekerjaan.', 'public/assets/images/orang/Hero ProgramB2.png', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `project`
+-- Table structure for table `program_kerjasama`
 --
 
-CREATE TABLE `project` (
+CREATE TABLE `program_kerjasama` (
   `id` int NOT NULL,
-  `nama_project` varchar(255) NOT NULL,
+  `nama_program_kerjasama` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `link_program_kerjasama` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `project`
+-- Dumping data for table `program_kerjasama`
 --
 
-INSERT INTO `project` (`id`, `nama_project`, `deskripsi`, `gambar`, `link_program_kerjasama`) VALUES
+INSERT INTO `program_kerjasama` (`id`, `nama_program_kerjasama`, `deskripsi`, `gambar`, `link_program_kerjasama`) VALUES
 (1, 'Prakerja', 'Program Pelatihan Prakerja bertujuan mengembangkan kompetensi kerja untuk pencari kerja, pekerja yang terkena PHK, dan yang membutuhkan peningkatan keterampilan.', 'public/assets/images/orang/image prakerja.png', 'https://luarsekolah.com/prakerja'),
 (2, 'Belajar Bekerja', 'Program Belajar Bekerja membekali keterampilan digital dan AI, dengan mentor praktisi industri, untuk meningkatkan kesiapan dan daya saing profesional.', 'public/assets/images/orang/image belajar bekerja.png', ''),
 (3, 'Indonesian Skills Week', 'Indonesia Skills Week adalah event dua bulanan dari Prakerja yang terbuka untuk semua golongan, termasuk alumni Prakerja.', 'public/assets/images/orang/image Indonesian Skills Week.png', '');
@@ -163,9 +163,9 @@ INSERT INTO `rekomendasi_program` (`id`, `judul`, `deskripsi`, `gambar`, `instru
 --
 
 --
--- Indexes for table `berjuang`
+-- Indexes for table `top_alumni`
 --
-ALTER TABLE `berjuang`
+ALTER TABLE `top_alumni`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -175,21 +175,21 @@ ALTER TABLE `login_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mereka_berhasil`
+-- Indexes for table `ulasan_alumni`
 --
-ALTER TABLE `mereka_berhasil`
+ALTER TABLE `ulasan_alumni`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `program`
+-- Indexes for table `program_pelatihan`
 --
-ALTER TABLE `program`
+ALTER TABLE `program_pelatihan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `project`
+-- Indexes for table `program_kerjasama`
 --
-ALTER TABLE `project`
+ALTER TABLE `program_kerjasama`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -203,9 +203,9 @@ ALTER TABLE `rekomendasi_program`
 --
 
 --
--- AUTO_INCREMENT for table `berjuang`
+-- AUTO_INCREMENT for table `top_alumni`
 --
-ALTER TABLE `berjuang`
+ALTER TABLE `top_alumni`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -215,21 +215,21 @@ ALTER TABLE `login_admin`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `mereka_berhasil`
+-- AUTO_INCREMENT for table `ulasan_alumni`
 --
-ALTER TABLE `mereka_berhasil`
+ALTER TABLE `ulasan_alumni`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `program`
+-- AUTO_INCREMENT for table `program_pelatihan`
 --
-ALTER TABLE `program`
+ALTER TABLE `program_pelatihan`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `project`
+-- AUTO_INCREMENT for table `program_kerjasama`
 --
-ALTER TABLE `project`
+ALTER TABLE `program_kerjasama`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

@@ -12,11 +12,11 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
     $profesi = $_POST['profesi'];
-    $tempat = $_POST['tempat'];
+    $tempat_kerja = $_POST['tempat_kerja'];
     $gambar = $_POST['gambar'];
 
     $query = "UPDATE berjuang 
-              SET nama='$nama', profesi='$profesi', tempat='$tempat', gambar='$gambar' 
+              SET nama='$nama', profesi='$profesi', tempat_kerja='$tempat_kerja', gambar='$gambar' 
               WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolaberjuang.php");
@@ -65,7 +65,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM berjuang");
                     <tr style="text-align: center">
                         <td><?php echo $row['nama']; ?></td>
                         <td><?php echo $row['profesi']; ?></td>
-                        <td><?php echo $row['tempat']; ?></td>
+                        <td><?php echo $row['tempat_kerja']; ?></td>
                         <td><img src="<?php echo $row['gambar']; ?>" width="100" class="img-thumbnail"></td>
                         <td>
                             <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">Edit</button>
@@ -93,7 +93,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM berjuang");
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Tempat</label>
-                                            <input type="text" class="form-control" name="tempat" value="<?php echo $row['tempat']; ?>" required>
+                                            <input type="text" class="form-control" name="tempat_kerja" value="<?php echo $row['tempat_kerja']; ?>" required>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">URL Gambar</label>

@@ -2,7 +2,7 @@
 include '../admin/koneksi.php'; // Pastikan koneksi database sudah ada
 
 // Query untuk mengambil data mereka yang berhasil
-$query = "SELECT * FROM mereka_berhasil";
+$query = "SELECT * FROM ulasan_alumni";
 $result = mysqli_query($koneksi, $query);
 
 // Cek jika query gagal
@@ -30,7 +30,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   </div>
                 </div>
                 <blockquote>
-                  <?php echo $row['katakata']; ?>
+                  <?php echo $row['ulasan']; ?>
                 </blockquote>
               </div>
             <?php endforeach; ?>
