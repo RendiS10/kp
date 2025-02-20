@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 20, 2025 at 10:24 AM
+-- Generation Time: Feb 20, 2025 at 11:02 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.15
 
@@ -97,16 +97,17 @@ CREATE TABLE `program` (
   `id` int NOT NULL,
   `nama_program` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `gambar` varchar(255) NOT NULL,
+  `link_program` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `program`
 --
 
-INSERT INTO `program` (`id`, `nama_program`, `deskripsi`, `gambar`) VALUES
-(1, 'Project Based Internship (PBIs)', 'Program magang berdurasi maksimal 3 bulan. Cocok untukmu untuk mendapatkan basic experiences atau portofolio.', 'public/assets/images/orang/Ikon ProgramB1.png'),
-(2, 'Job Connector', 'Program berdurasi 6 bulan atau lebih. Cocok untukmu agar lebih siap secara profesional untuk bisa mendapatkan pekerjaan.', 'public/assets/images/orang/Hero ProgramB2.png');
+INSERT INTO `program` (`id`, `nama_program`, `deskripsi`, `gambar`, `link_program`) VALUES
+(1, 'Project Based Internship (PBIs)', 'Program magang berdurasi maksimal 3 bulan. Cocok untukmu untuk mendapatkan basic experiences atau portofolio.', 'public/assets/images/orang/Ikon ProgramB1.png', 'https://pbi.belajarbekerja.com/'),
+(2, 'Job Connector', 'Program berdurasi 6 bulan atau lebih. Cocok untukmu agar lebih siap secara profesional untuk bisa mendapatkan pekerjaan.', 'public/assets/images/orang/Hero ProgramB2.png', '');
 
 -- --------------------------------------------------------
 
@@ -118,17 +119,18 @@ CREATE TABLE `project` (
   `id` int NOT NULL,
   `nama_project` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `gambar` varchar(255) NOT NULL,
+  `link_program_kerjasama` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `nama_project`, `deskripsi`, `gambar`) VALUES
-(1, 'Prakerja', 'Program Pelatihan Prakerja bertujuan mengembangkan kompetensi kerja untuk pencari kerja, pekerja yang terkena PHK, dan yang membutuhkan peningkatan keterampilan.', 'public/assets/images/orang/image prakerja.png'),
-(2, 'Belajar Bekerja', 'Program Belajar Bekerja membekali keterampilan digital dan AI, dengan mentor praktisi industri, untuk meningkatkan kesiapan dan daya saing profesional.', 'public/assets/images/orang/image belajar bekerja.png'),
-(3, 'Indonesian Skills Week', 'Indonesia Skills Week adalah event dua bulanan dari Prakerja yang terbuka untuk semua golongan, termasuk alumni Prakerja.', 'public/assets/images/orang/image Indonesian Skills Week.png');
+INSERT INTO `project` (`id`, `nama_project`, `deskripsi`, `gambar`, `link_program_kerjasama`) VALUES
+(1, 'Prakerja', 'Program Pelatihan Prakerja bertujuan mengembangkan kompetensi kerja untuk pencari kerja, pekerja yang terkena PHK, dan yang membutuhkan peningkatan keterampilan.', 'public/assets/images/orang/image prakerja.png', 'https://luarsekolah.com/prakerja'),
+(2, 'Belajar Bekerja', 'Program Belajar Bekerja membekali keterampilan digital dan AI, dengan mentor praktisi industri, untuk meningkatkan kesiapan dan daya saing profesional.', 'public/assets/images/orang/image belajar bekerja.png', ''),
+(3, 'Indonesian Skills Week', 'Indonesia Skills Week adalah event dua bulanan dari Prakerja yang terbuka untuk semua golongan, termasuk alumni Prakerja.', 'public/assets/images/orang/image Indonesian Skills Week.png', '');
 
 -- --------------------------------------------------------
 
@@ -222,13 +224,13 @@ ALTER TABLE `mereka_berhasil`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rekomendasi_program`
