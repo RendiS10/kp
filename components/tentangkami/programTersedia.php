@@ -15,7 +15,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <section class="program-tersedia">
 
-        <h1>Program Pelatihan Magang</h1>
+        <h1>Program Pelatihan</h1>
         <div class="program-cards">
             <?php if (count($data) > 0) : ?>
                 <?php foreach ($data as $row) : ?>

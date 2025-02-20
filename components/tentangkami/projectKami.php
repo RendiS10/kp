@@ -18,7 +18,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <section class="program-section">
     <h1>Program Kerja Sama</h1>
     <p class="program-description">
-        Kami menawarkan beragam program pembelajaran inovatif yang mencakup
+        Kami bekerja sama dengan berbagai mitra lain yang menawarkan beragam program pembelajaran inovatif yang mencakup
         berbagai bidang, dirancang untuk membantu Anda menguasai keterampilan
         baru dan mencapai potensi terbaik.
     </p>
