@@ -12,8 +12,9 @@ if (isset($_POST['tambah'])) {
     $nama_program = $_POST['nama_program'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
+    $link_program = $_POST['link_program'];
 
-    $query = "INSERT INTO program (nama_program, deskripsi, gambar) VALUES ('$nama_program', '$deskripsi', '$gambar')";
+    $query = "INSERT INTO program (nama_program, deskripsi, gambar, link_program) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_program')";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -25,8 +26,9 @@ if (isset($_POST['update'])) {
     $nama_program = $_POST['nama_program'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
+    $link_program = $_POST['link_program'];
 
-    $query = "UPDATE program SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar' WHERE id=$id";
+    $query = "UPDATE program SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar', link_program='$link_program' WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -86,6 +88,10 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                     <label for="gambar" class="form-label">URL Gambar</label>
                     <input type="text" class="form-control" name="gambar" required>
                 </div>
+                  <div class="mb-3">
+                    <label for="link_program" class="form-label">Link Program</label>
+                    <input type="text" class="form-control" name="link_program" required>
+                </div>
                 <button type="submit" name="tambah" class="btn btn-secondary">Tambah Program</button>
             </form>
         </div>
@@ -134,6 +140,10 @@ $result = mysqli_query($koneksi, "SELECT * FROM program");
                                 <div class="mb-3">
                                     <label class="form-label">URL Gambar</label>
                                     <input type="text" class="form-control" name="gambar" value="<?php echo $row['gambar']; ?>" required>
+                                </div>
+                                 <div class="mb-3">
+                                    <label class="form-label">Link Program</label>
+                                    <input type="text" class="form-control" name="link_program" value="<?php echo $row['link_program']; ?>" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

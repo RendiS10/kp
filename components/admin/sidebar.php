@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelolaprogram.php' ? 'active' : ''; ?>" href="kelolaprogram.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Kelola Program Magang
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Program Pelatihan
                 </a>
             </li>
             <li class="nav-item">

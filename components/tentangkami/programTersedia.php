@@ -23,7 +23,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <img src="<?php echo $row['gambar']; ?>" alt="<?php echo $row['nama_program']; ?>" class="program-image2" />
                         <h3 class="program-card-title"><?php echo $row['nama_program']; ?></h3>
                         <p class="program-card-description"><?php echo $row['deskripsi']; ?></p>
-                        <a href="#" class="program-button">Lihat Detail Program</a>
+                        <a href="<?php echo $row['link_program']; ?>" class="program-button">Lihat Detail Program</a>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
