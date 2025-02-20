@@ -14,7 +14,7 @@ if (isset($_POST['tambah'])) {
     $gambar = $_POST['gambar'];
     $link_program_kerjasama = $_POST['link_program_kerjasama'];
 
-    $query = "INSERT INTO project (nama_program_kerjasama, deskripsi, gambar, link_program_kerjasama) VALUES ('$nama_program_kerjasama', '$deskripsi', '$gambar', '$link_program_kerjasama')";
+    $query = "INSERT INTO program_kerjasama (nama_program_kerjasama, deskripsi, gambar, link_program_kerjasama) VALUES ('$nama_program_kerjasama', '$deskripsi', '$gambar', '$link_program_kerjasama')";
     mysqli_query($koneksi, $query);
     header("Location: kelolakerjasama.php");
     exit();
@@ -28,7 +28,7 @@ if (isset($_POST['update'])) {
     $gambar = $_POST['gambar'];
     $link_program_kerjasama = $_POST['link_program_kerjasama'];
 
-    $query = "UPDATE project SET nama_program_kerjasama='$nama_program_kerjasama', deskripsi='$deskripsi', gambar='$gambar', link_program_kerjasama='$link_program_kerjasama' WHERE id=$id";
+    $query = "UPDATE program_kerjasama SET nama_program_kerjasama='$nama_program_kerjasama', deskripsi='$deskripsi', gambar='$gambar', link_program_kerjasama='$link_program_kerjasama' WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolakerjasama.php");
     exit();
@@ -37,14 +37,14 @@ if (isset($_POST['update'])) {
 // DELETE
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
-    $query = "DELETE FROM project WHERE id=$id";
+    $query = "DELETE FROM program_kerjasama WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolakerjasama.php");
     exit();
 }
 
 // READ
-$result = mysqli_query($koneksi, "SELECT * FROM project");
+$result = mysqli_query($koneksi, "SELECT * FROM program_kerjasama");
 ?>
 
 <!DOCTYPE html>

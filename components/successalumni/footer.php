@@ -35,7 +35,7 @@
           <div class="informasi-footer1">
             <ul>
               <li>
-                <a href="#">Tentang Kami</a>
+                <a href="../../index.php">Tentang Kami</a>
               </li>
               <li><a href="https://luarsekolah.com/article">Blog</a></li>
               <li><a href="https://luarsekolah.com/promo">Promo</a></li>

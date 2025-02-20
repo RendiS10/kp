@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 include 'koneksi.php'; // Pastikan koneksi database sudah ada
 
 // Menghitung jumlah konten dari setiap tabel
-$tables = ['login_admin', 'program', 'project', 'rekomendasi_program', 'berjuang', 'mereka_berhasil'];
+$tables = ['login_admin', 'program_kerjasama', 'program_pelatihan', 'rekomendasi_program', 'top_alumni', 'ulasan_alumni'];
 $counts = [];
 
 foreach ($tables as $table) {
@@ -53,17 +53,17 @@ foreach ($tables as $table) {
     <div class="row">
         <div class="col-md-4">
             <div class="card text-white bg-success mb-3">
-                <div class="card-header">Jumlah Konten Program</div>
+                <div class="card-header">Jumlah Konten Program Kerja Sama</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $counts['program']; ?></h5>
+                    <h5 class="card-title"><?php echo $counts['program_kerjasama']; ?></h5>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-info mb-3">
-                <div class="card-header">Jumlah Konten Project</div>
+                <div class="card-header">Jumlah Konten Pelatihan</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $counts['project']; ?></h5>
+                    <h5 class="card-title"><?php echo $counts['program_pelatihan']; ?></h5>
                 </div>
             </div>
         </div>
@@ -77,17 +77,17 @@ foreach ($tables as $table) {
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-danger mb-3">
-                <div class="card-header">Jumlah Konten Berjuang</div>
+                <div class="card-header">Jumlah Konten Top Alumni</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $counts['berjuang']; ?></h5>
+                    <h5 class="card-title"><?php echo $counts['top_alumni']; ?></h5>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-secondary mb-3">
-                <div class="card-header">Jumlah Konten Mereka yang Berhasil</div>
+                <div class="card-header">Jumlah Konten Ulasan</div>
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $counts['mereka_berhasil']; ?></h5>
+                    <h5 class="card-title"><?php echo $counts['ulasan_alumni']; ?></h5>
                 </div>
             </div>
         </div>

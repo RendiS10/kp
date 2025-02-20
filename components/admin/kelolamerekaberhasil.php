@@ -14,7 +14,7 @@ if (isset($_POST['tambah'])) {
     $ulasan = $_POST['ulasan'];
     $gambar = $_POST['gambar'];
 
-    $query = "INSERT INTO mereka_berhasil (nama, profesi, ulasan, gambar) 
+    $query = "INSERT INTO ulasan_alumni (nama, profesi, ulasan, gambar) 
               VALUES ('$nama', '$profesi', '$ulasan', '$gambar')";
     mysqli_query($koneksi, $query);
     header("Location: kelolamerekaberhasil.php");
@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
     $ulasan = $_POST['ulasan'];
     $gambar = $_POST['gambar'];
 
-    $query = "UPDATE mereka_berhasil 
+    $query = "UPDATE ulasan_alumni 
               SET nama='$nama', profesi='$profesi', ulasan='$ulasan', gambar='$gambar' 
               WHERE id=$id";
     mysqli_query($koneksi, $query);
@@ -40,14 +40,14 @@ if (isset($_POST['update'])) {
 // DELETE
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
-    $query = "DELETE FROM mereka_berhasil WHERE id=$id";
+    $query = "DELETE FROM ulasan_alumni WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolamerekaberhasil.php");
     exit();
 }
 
 // READ (Tampilkan semua data)
-$result = mysqli_query($koneksi, "SELECT * FROM mereka_berhasil");
+$result = mysqli_query($koneksi, "SELECT * FROM ulasan_alumni");
 ?>
 
 <!DOCTYPE html>

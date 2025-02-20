@@ -14,7 +14,7 @@ if (isset($_POST['tambah'])) {
     $gambar = $_POST['gambar'];
     $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "INSERT INTO program (nama_program, deskripsi, gambar, link_pelatihan) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_pelatihan')";
+    $query = "INSERT INTO program_pelatihan (nama_program, deskripsi, gambar, link_pelatihan) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_pelatihan')";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -28,7 +28,7 @@ if (isset($_POST['update'])) {
     $gambar = $_POST['gambar'];
     $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "UPDATE program SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar', link_pelatihan='$link_pelatihan' WHERE id=$id";
+    $query = "UPDATE program_pelatihan SET nama_program='$nama_program', deskripsi='$deskripsi', gambar='$gambar', link_pelatihan='$link_pelatihan' WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
@@ -37,14 +37,14 @@ if (isset($_POST['update'])) {
 // DELETE
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
-    $query = "DELETE FROM program WHERE id=$id";
+    $query = "DELETE FROM program_pelatihan WHERE id=$id";
     mysqli_query($koneksi, $query);
     header("Location: kelolaprogram.php");
     exit();
 }
 
 // READ
-$result = mysqli_query($koneksi, "SELECT * FROM program");
+$result = mysqli_query($koneksi, "SELECT * FROM program_pelatihan");
 ?>
 
 <!DOCTYPE html>

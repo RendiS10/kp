@@ -15,7 +15,7 @@ if (isset($_POST['update'])) {
     $tempat_kerja = $_POST['tempat_kerja'];
     $gambar = $_POST['gambar'];
 
-    $query = "UPDATE berjuang 
+    $query = "UPDATE top_alumni 
               SET nama='$nama', profesi='$profesi', tempat_kerja='$tempat_kerja', gambar='$gambar' 
               WHERE id=$id";
     mysqli_query($koneksi, $query);
@@ -24,7 +24,7 @@ if (isset($_POST['update'])) {
 }
 
 // READ (Tampilkan semua data untuk diedit)
-$result = mysqli_query($koneksi, "SELECT * FROM berjuang");
+$result = mysqli_query($koneksi, "SELECT * FROM top_alumni");
 ?>
 
 <!DOCTYPE html>
