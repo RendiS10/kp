@@ -7,56 +7,54 @@ if (!isset($_SESSION['username'])) {
 
 include 'koneksi.php';
 
-// CREATE
+// CREATE - Tambah Program
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tambah_data'])) {
     $nama_program = $_POST['nama_program'];
     $deskripsi = $_POST['deskripsi'];
     $gambar = $_POST['gambar'];
     $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "INSERT INTO program_pelatihan (nama_program, deskripsi, gambar, link_pelatihan) VALUES ('$nama_program', '$deskripsi', '$gambar', '$link_pelatihan')";
-    if (mysqli_query($koneksi, $query)) {
+    $stmt = $koneksi->prepare("INSERT INTO program_pelatihan (nama_program, deskripsi, gambar, link_pelatihan) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nama_program, $deskripsi, $gambar, $link_pelatihan);
+
+    if ($stmt->execute()) {
         header("Location: kelolaprogram.php?success=tambah");
         exit();
     }
 }
-// UPDATE
+
+// UPDATE - Edit Program
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
-    $id = mysqli_real_escape_string($koneksi, $_POST['id']);
-    $nama_program = mysqli_real_escape_string($koneksi, $_POST['nama_program']);
-    $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
-    $gambar = mysqli_real_escape_string($koneksi, $_POST['gambar']);
-    $link_pelatihan = mysqli_real_escape_string($koneksi, $_POST['link_pelatihan']);
+    $id = $_POST['id'];
+    $nama_program = $_POST['nama_program'];
+    $deskripsi = $_POST['deskripsi'];
+    $gambar = $_POST['gambar'];
+    $link_pelatihan = $_POST['link_pelatihan'];
 
-    $query = "UPDATE program_pelatihan SET 
-                nama_program='$nama_program', 
-                deskripsi='$deskripsi', 
-                gambar='$gambar', 
-                link_pelatihan='$link_pelatihan' 
-              WHERE id='$id'";
+    $stmt = $koneksi->prepare("UPDATE program_pelatihan SET nama_program=?, deskripsi=?, gambar=?, link_pelatihan=? WHERE id=?");
+    $stmt->bind_param("ssssi", $nama_program, $deskripsi, $gambar, $link_pelatihan, $id);
 
-    if (mysqli_query($koneksi, $query)) {
+    if ($stmt->execute()) {
         header("Location: kelolaprogram.php?success=update");
         exit();
-    } else {
-        echo "Error: " . mysqli_error($koneksi);
     }
 }
 
-
-
-// Hapus Data
+// DELETE - Hapus Program
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
-    $query = "DELETE FROM program_pelatihan WHERE id=$id";
-    if (mysqli_query($koneksi, $query)) {
+
+    $stmt = $koneksi->prepare("DELETE FROM program_pelatihan WHERE id=?");
+    $stmt->bind_param("i", $id);
+
+    if ($stmt->execute()) {
         header("Location: kelolaprogram.php?success=hapus");
         exit();
     }
 }
 
-// READ
-$result = mysqli_query($koneksi, "SELECT * FROM program_pelatihan");
+// READ - Ambil Semua Data
+$result = $koneksi->query("SELECT * FROM program_pelatihan");
 ?>
 
 <!DOCTYPE html>
@@ -176,72 +174,77 @@ $result = mysqli_query($koneksi, "SELECT * FROM program_pelatihan");
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    function konfirmasiTambah() {
-        let nama = document.getElementById('nama_program').value;
-        let deskripsi = document.getElementById('deskripsi').value;
-        let gambar = document.getElementById('gambar').value;
-        let link = document.getElementById('link_pelatihan').value;
-
-        if (nama === "" || deskripsi === "" || gambar === "" || link === "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Harap isi semua data terlebih dahulu!'
-            });
-            return;
-        }
-
+    document.addEventListener("DOMContentLoaded", function () {
+    // Notifikasi setelah tambah berhasil
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("success") === "tambah") {
         Swal.fire({
-            title: 'Apakah data sudah benar?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Ya, Tambahkan!',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById('tambahForm').submit();
-            }
+            icon: "success",
+            title: "Berhasil!",
+            text: "Program berhasil ditambahkan.",
+            confirmButtonText: "OK"
+        }).then(() => {
+            window.location.href = "kelolaprogram.php";
         });
     }
-    document.addEventListener("DOMContentLoaded", function() {
-        const deleteButtons = document.querySelectorAll(".delete-btn");
-
-        deleteButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                const id = this.getAttribute("data-id");
-
-                Swal.fire({
-                    title: "Apakah Anda yakin?",
-                    text: "Data yang dihapus tidak bisa dikembalikan!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "Ya, Hapus!",
-                    cancelButtonText: "Batal",
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = `kelolaprogram.php?hapus=${id}`;
-                    }
-                });
-            });
+    
+    // Notifikasi setelah update berhasil
+    if (urlParams.get("success") === "update") {
+        Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Data berhasil diperbarui.",
+            confirmButtonText: "OK"
+        }).then(() => {
+            window.location.href = "kelolaprogram.php";
         });
+    }
 
-        // Notifikasi setelah penghapusan berhasil
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("success") === "hapus") {
-            Swal.fire({
-                icon: "success",
-                title: "Berhasil!",
-                text: "Program berhasil dihapus.",
-                confirmButtonText: "OK"
-            }).then(() => {
-                window.location.href = "kelolaprogram.php";
-            });
+    // Notifikasi setelah hapus berhasil
+    if (urlParams.get("success") === "hapus") {
+        Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Program berhasil dihapus.",
+            confirmButtonText: "OK"
+        }).then(() => {
+            window.location.href = "kelolaprogram.php";
+        });
+    }
+});
+
+// Konfirmasi Tambah Program
+function konfirmasiTambah() {
+    let nama = document.getElementById('nama_program').value;
+    let deskripsi = document.getElementById('deskripsi').value;
+    let gambar = document.getElementById('gambar').value;
+    let link = document.getElementById('link_pelatihan').value;
+
+    if (nama === "" || deskripsi === "" || gambar === "" || link === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Harap isi semua data terlebih dahulu!'
+        });
+        return;
+    }
+
+    Swal.fire({
+        title: 'Apakah data sudah benar?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Tambahkan!',
+        cancelButtonText: 'Batal',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('tambahForm').submit();
         }
     });
+}
 
-    function konfirmasiEdit(id) {
+// Konfirmasi Edit Program
+function konfirmasiEdit(id) {
     Swal.fire({
         title: "Konfirmasi Perubahan",
         text: "Apakah Anda yakin ingin menyimpan perubahan?",
@@ -256,20 +259,31 @@ $result = mysqli_query($koneksi, "SELECT * FROM program_pelatihan");
         }
     });
 }
-    // Menampilkan notifikasi setelah update berhasil
-    document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get("success") === "update") {
+
+// Konfirmasi Hapus Data
+document.addEventListener("DOMContentLoaded", function () {
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const id = this.getAttribute("data-id");
+
             Swal.fire({
-                icon: "success",
-                title: "Berhasil!",
-                text: "Data berhasil diperbarui.",
-                confirmButtonText: "OK"
-            }).then(() => {
-                window.location.href = "kelolaprogram.php"; // Reload halaman setelah sukses
+                title: "Apakah Anda yakin?",
+                text: "Data yang dihapus tidak bisa dikembalikan!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Hapus!",
+                cancelButtonText: "Batal",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `kelolaprogram.php?hapus=${id}`;
+                }
             });
-        }
+        });
     });
+});
 </script>
 
 </body>
