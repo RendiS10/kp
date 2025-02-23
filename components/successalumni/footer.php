@@ -84,6 +84,7 @@
           </div>
         </div>
       </div>
+      <br>
       <hr />
       <div class="footer3">
         <div class="footer-container">
@@ -118,6 +119,7 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="footer4">
         <div class="footer-bottom">
           <p>
