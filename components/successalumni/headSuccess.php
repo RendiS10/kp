@@ -68,10 +68,10 @@
         </nav>
         <div class="auth-buttons">
           <button class="btn" onclick="changeColor(this)">
-            <a href="https://luarsekolah.com/masuk" target="_blank"> Masuk</a>
+            <a href="https://authentication.luarsekolah.com/auth?q=eyJpdiI6Im8zSHduOEFIN2pyNG05TXFVSDY2cWc9PSIsInZhbHVlIjoiSTVXS0FQL09TWmh0L0FtTnRQUVVYMk1GaFZHSUltdDhzN0Rod2RtWGNEZnFvOFNlTmFJcnA1V1dhM2hOeUxuSCIsIm1hYyI6ImU1YjRhMzUyYjA5ZGMwOTI2OGExODRjZDdkMTUwNjlkNDgwYjNmMjY3MDMwNDM5NTYxNWUxMGQ5YTliZmRmNjAifQ==" target="_blank"> Masuk</a>
           </button>
           <button class="btn" onclick="changeColor(this)">
-            <a href="https://luarsekolah.com/daftar" target="_blank">Daftar</a>
+            <a href="https://authentication.luarsekolah.com/daftar?q=eyJpdiI6ImZCcnZUb0hNTm4zaFBvNzUzU0hRSmc9PSIsInZhbHVlIjoidWttME0rTWRzblovb0J6RlZjRlllQnNPUW9iMUdVUWg2OWxVeXVESkdTYkZ3bzI1UlhBZytpaExqNlhjUldJUGVBN0luTFQ0UUR5YmQwczBRTDFlc2kyZHhnQ2xIbzhJS1l3UmRWNGlxWFE9IiwibWFjIjoiNWUzNjEyODA0YTVmOThmMzg1YzNiOTM4YTI1ZTgxNGFmYjRhNWYzZmQ3N2M3ZjNhNzZhOGEwMzRiNWIyMDhkYyJ9" target="_blank">Daftar</a>
           </button>
         </div>
         <div class="hamburger" onclick="toggleMenu()">

@@ -35,7 +35,7 @@ if (!isset($_SESSION['username'])) {
             </li>
             <li class="nav-item">
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'rekomendasikelas.php' ? 'active' : ''; ?>" href="rekomendasikelas.php">
-                    <i class="fas fa-chalkboard-teacher"></i> Kelola Rekomendasi Kelas
+                    <i class="fas fa-chalkboard-teacher"></i> Kelola Rekomendasi Program
                 </a>
             </li>
             <li class="nav-item">

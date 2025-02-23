@@ -1,8 +1,17 @@
 <?php
 include 'components/admin/koneksi.php'; // Pastikan koneksi database sudah ada
 
-// Query untuk mengambil data proyek
-$query = "SELECT * FROM program_kerjasama"; // Ganti dengan nama tabel yang sesuai
+// Tentukan jumlah item per halaman
+$items_per_page = 4;
+
+// Tentukan halaman saat ini
+$current_page = isset($_GET['page_kerjasama']) ? (int)$_GET['page_kerjasama'] : 1;
+
+// Hitung offset
+$offset = ($current_page - 1) * $items_per_page;
+
+// Query untuk mengambil data proyek dengan limit dan offset
+$query = "SELECT * FROM program_kerjasama LIMIT $items_per_page OFFSET $offset";
 $result = mysqli_query($koneksi, $query);
 
 // Cek jika query gagal
@@ -12,6 +21,15 @@ if (!$result) {
 
 // Ambil semua data sekaligus
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Query untuk menghitung total item
+$total_query = "SELECT COUNT(*) as total FROM program_kerjasama";
+$total_result = mysqli_query($koneksi, $total_query);
+$total_row = mysqli_fetch_assoc($total_result);
+$total_items = $total_row['total'];
+
+// Hitung total halaman
+$total_pages = ceil($total_items / $items_per_page);
 ?>
 
 <!-- Section Our Projects -->
@@ -36,4 +54,11 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <p>Tidak ada project yang tersedia saat ini.</p>
         <?php endif; ?>
     </div>
+    <?php if ($total_pages > 1) : ?>
+    <div class="pagination">
+        <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+            <a href="?page_kerjasama=<?php echo $i; ?>" class="<?php echo $i == $current_page ? 'active' : ''; ?>"><?php echo $i; ?></a>
+        <?php endfor; ?>
+    </div>
+    <?php endif; ?>
 </section>

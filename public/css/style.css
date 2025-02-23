@@ -839,7 +839,7 @@ body {
 }
 
 .card-image {
-  height: 104px;
+  height: 134px;
   width: 250px;
   border-radius: 10px 10px 0px 0px;
   margin-bottom: 20px;
@@ -909,20 +909,11 @@ body {
   cursor: pointer;
 }
 /* Footer */
-footer {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: #f3f4f6;
-}
-
 .footer1,
 .footer2 {
   padding: 20px 0px 0px 100px;
   display: flex;
   margin-right: 30px;
-  gap: 10rem;
 }
 .footer1 {
   color: #1bc89d;
@@ -935,11 +926,12 @@ footer {
   text-align: justify;
   width: 416px;
   font-weight: 400;
+  margin-right: 30px;
 }
 .footer2-component2 {
   width: 335px;
   display: flex;
-  gap: 5rem;
+  gap: 3rem;
 }
 .informasi-footer1,
 .informasi-footer2,
@@ -973,6 +965,7 @@ footer {
 
 .footer2-component3 {
   text-align: center; /* Pusatkan teks */
+  margin-left: 6rem;
 }
 
 .google-play {
@@ -1013,15 +1006,15 @@ footer {
 
 .footer-section p {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 5px 0;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 5px 0;
 }
-.footer-section p a {
-  color: black;
+.footer-section p a{
+color: black;
 }
 .footer-section p span {
   margin-right: 10px;
@@ -1058,4 +1051,30 @@ footer {
 }
 .sosmed i {
   color: black; /* Mengubah warna ikon menjadi hitam */
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  margin: 0 5px;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: #1bc89d;
+  color: #fff;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
 }
