@@ -1,5 +1,5 @@
+<?php include 'headSuccess.php'; ?>
 <body>
-  <?php include 'headSuccess.php'; ?>
   <!-- Section Sidebar -->
   <?php include 'sidebar.php'; ?>
 
