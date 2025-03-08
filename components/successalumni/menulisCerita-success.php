@@ -10,4 +10,3 @@
           <button class="btn">Pelajari Program Kami</button>
         </div>
       </section>
-    </article>

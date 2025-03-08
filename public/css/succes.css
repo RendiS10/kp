@@ -433,7 +433,6 @@ color: black;
 
 .btn-pelajari {
   display: flex;
-  width: 1440px;
   padding: 20px 12px;
   flex-direction: column;
   align-items: center;
